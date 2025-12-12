@@ -1,0 +1,15 @@
+{
+  "name": "proyecto-ultra-rapido",
+  "scripts": {
+    "build:ts": "tsc",
+    
+    "build:js": "npx uglifyjs public/script.js -o public/script.min.js", 
+    
+    "build:hashes": "node hash_injector.js",
+    "build:all": "npm run build:ts && npm run build:js && npm run build:hashes"
+  },
+  "dependencies": {
+    "uglify-js": "^3.17.4",
+    "typescript": "^5.0.0" 
+  }
+}

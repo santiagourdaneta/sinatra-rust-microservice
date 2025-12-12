@@ -1,0 +1,19 @@
+# 1. Variables de entorno 
+.env
+
+# 2. Archivos binarios y de compilación de Ruby y Rust
+/vendor/bundle
+*.gem
+/tmp
+/log
+
+# 3. Archivos de compilación de Rust
+/target/
+
+# 4. Dependencias de Node.js
+/node_modules/
+
+# 5. Archivos generados por el build
+/public/*.min.js
+/public/*.min.css
+/public/*.js

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES5",        /* Convertir a JavaScript antiguo (ES5) para compatibilidad con laptops y moviles viejos */
+    "module": "commonjs",
+    "outDir": "./public",   /* Poner el archivo .js resultante en la carpeta 'public' */
+    "rootDir": "./src_ts", /* La fuente (.ts) viene de la carpeta src_ts */
+    "strict": true,         /* Codigo de alta calidad */
+    "esModuleInterop": true,
+    "lib": ["DOM", "ES2015", "ES2016"] // Definiciones necesarias para que 'async/await' funcione en ES5.
+  },
+ "include": ["src_ts/**/*.ts"] /* Incluir todos los archivos .ts dentro de src_ts */
+}

@@ -1,0 +1,269 @@
+/* public/style.css - Estilo impecable, moderno y de alta usabilidad */
+
+:root {
+    /* Paleta de colores */
+    --color-text-light: #f4f4f9;        /* Texto blanco-suave */
+    --color-bg-dark: #121212;           /* Fondo principal */
+    --color-primary-green: #38a169;     /* Color de éxito/acción (Eco-friendly) */
+
+    --color-accent-blue: #0077b6;       /* Azul Océano (0-20) */
+    --color-accent-red: #cc0000;        /* Rojo Intenso (21-40) */
+
+    --color-gray-soft: #2d3748;         /* Fondo de contenedores */
+    --color-textarea-bg: #0b111a;       /* Fondo de área de texto (tipo terminal) */
+    --transition-speed: 0.3s;
+}
+
+/* ---------------------------------- */
+/* BASE GLOBAL Y ANIMACIÓN DE FONDO */
+/* ---------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--color-text-light);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: var(--color-bg-dark); 
+    transition: background-color var(--transition-speed) ease-in-out;
+    justify-content: center;
+    display: flex;
+    flex-direction: column; /* Apila MAIN y FOOTER verticalmente */
+    align-items: center;    /* Centra el contenido (MAIN y FOOTER) horizontalmente */
+}
+
+/* Clases de fondo dinámico (controladas por script.ts) */
+.bg-blue-0-20 {
+    /* Fondo Azul Océano */
+    background: linear-gradient(135deg, #121212 0%, #1a202c 50%, var(--color-accent-blue) 150%);
+}
+
+.bg-red-20-40 {
+    /* Fondo Rojo Intenso */
+    background: linear-gradient(135deg, #121212 0%, #2d3748 50%, var(--color-accent-red) 150%);
+}
+
+/* ---------------------------------- */
+/* CONTENEDORES Y TIPOGRAFÍA */
+/* ---------------------------------- */
+
+main {
+    width: 100%;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 12px;
+    background: #1a202c; /* Contenedor oscuro */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    flex-grow: 1;
+    margin: 0 auto; /* Centrado clásico si Flexbox falla */
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--color-primary-green);
+    border-bottom: 2px solid var(--color-gray-soft);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.instruction-text {
+    font-size: 0.95rem;
+    color: var(--color-accent-blue);
+    font-style: italic;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.control-group {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    background-color: #1f2937;
+}
+
+
+/* ---------------------------------- */
+/* SLIDER Y BOTONES */
+/* ---------------------------------- */
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+#rangeSlider {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    background: #4a5568;
+    border-radius: 5px;
+    cursor: grab;
+    overflow: hidden; 
+}
+
+/* Pulgar (Thumb) del Slider - Estilo Moderno */
+#rangeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary-green);
+    border-radius: 50%;
+    border: 3px solid var(--color-text-light);
+    box-shadow: -400px 0 0 400px var(--color-primary-green); /* Simula el relleno de color */
+    transition: background var(--transition-speed);
+}
+
+#rangeValue {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary-green);
+    min-width: 30px;
+    text-align: right;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+    align-items: center;
+}
+
+
+.option-btn {
+    background-color: var(--color-gray-soft);
+    color: var(--color-text-light);
+    border: 2px solid #4a5568;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    /* Para que haya espacio si los botones se envuelven en móvil */
+    margin-bottom: 10px; 
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background-color: #4a5568;
+    border-color: var(--color-primary-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.loading-indicator {
+    font-style: italic;
+    color: var(--color-accent-red);
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+/* ---------------------------------- */
+/* ÁREA DE TEXTO Y ACCIÓN */
+/* ---------------------------------- */
+
+.output-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+#output {
+    width: 100%;
+    min-height: 250px;
+    padding: 20px;
+    font-family: 'Consolas', 'Monaco', monospace; /* Fuente monoespaciada para el texto */
+    font-size: 0.95rem;
+    color: #e2e8f0; 
+    background-color: var(--color-textarea-bg); 
+    border: 2px solid var(--color-primary-green); 
+    border-radius: 8px;
+    resize: vertical;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6); /* Sombra interna para profundidad */
+    line-height: 1.6;
+    margin-bottom: 15px;
+    transition: border-color 0.2s;
+}
+
+#output:focus {
+    border-color: var(--color-accent-blue);
+    outline: none;
+}
+
+.action-btn {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-dark);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.action-btn:hover {
+    background-color: #48bb78; 
+    transform: translateY(-1px);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------------------------------- */
+/* FOOTER (PIE DE PÁGINA) */
+/* ---------------------------------- */
+
+footer {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #2d3748;
+    color: #a0aec0;
+    font-size: 0.85rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ESTILOS PARA EL CRONÓMETRO */
+.process-info {
+    display: flex; /* Asegura que la carga y el tiempo se alineen */
+    align-items: center;
+    gap: 15px;
+    margin-left: 15px;
+}
+
+.timer-display {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-accent-blue); /* Color destacado para el tiempo */
+    background-color: #0b111a;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #4a5568;
+    min-width: 120px;
+    text-align: center;
+}
